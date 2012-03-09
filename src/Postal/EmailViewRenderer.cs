@@ -38,7 +38,7 @@ namespace Postal
         /// </summary>
         public string EmailViewDirectoryName { get; set; }
 
-        public string Render(Email email, string viewName = null)
+        public virtual string Render(Email email, string viewName = null)
         {
             viewName = viewName ?? email.ViewName;
             var controllerContext = CreateControllerContext();

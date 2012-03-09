@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Web.Mvc;
+using RazorEngine.Templating;
 
 namespace Postal
 {
     public class ResourceRazorViewEngine : IViewEngine
     {
+        private readonly ITemplateService _templateService;
         private readonly Assembly viewSourceAssembly;
         private readonly string viewPathRoot;
 
@@ -15,6 +17,12 @@ namespace Postal
         {
             this.viewSourceAssembly = viewSourceAssembly;
             this.viewPathRoot = viewPathRoot;
+        }
+
+        public ResourceRazorViewEngine(Assembly viewSourceAssembly, string viewPathRoot, ITemplateService templateService) 
+            : this(viewSourceAssembly, viewPathRoot)
+        {
+            _templateService = templateService;
         }
 
         public ViewEngineResult FindPartialView(ControllerContext controllerContext, string partialViewName, bool useCache)
