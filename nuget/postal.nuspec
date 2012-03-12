@@ -18,4 +18,10 @@
             <frameworkAssembly assemblyName="System.Web" />
         </frameworkAssemblies>
     </metadata>
+    <files>
+	  <file src="lib\net40\BoneSoft.CSS.dll" target="lib\net40\BoneSoft.CSS.dll" />
+	  <file src="lib\net40\Fizzler.dll" target="lib\net40\Fizzler.dll" />
+	  <file src="lib\net40\Fizzler.Systems.HtmlAgilityPack.dll" target="lib\net40\Fizzler.Systems.HtmlAgilityPack.dll" />
+	  <file src="lib\net40\Postal.dll" target="lib\net40\Postal.dll" />
+    </files>
 </package>
