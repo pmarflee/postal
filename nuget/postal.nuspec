@@ -13,6 +13,7 @@
         <language>en-US</language>
         <dependencies>
             <dependency id="RazorEngine" version="3.0"/>
+            <dependency id="HtmlAgilityPack" version="1.4.3"/>
         </dependencies>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.Web" />
