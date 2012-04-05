@@ -200,5 +200,20 @@ namespace Postal
 
             Assert.Equal(node.Attributes["style"].Value, "font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-height: 14px;");
         }
+
+        [Fact]
+        public void UpdateInlineStyleForElement_Should_Update_Color_And_BackgroundColor()
+        {
+            var css = @"#myDiv { background-color: white; color: black; }";
+            var declarations = new CSSParser().ParseText(css).RuleSets.SelectMany(x => x.Declarations);
+            var node = HtmlNode.CreateNode(@"<div />");
+
+            foreach (var declaration in declarations)
+            {
+                CSSInliner.UpdateInlineStyleForElement(node, declaration);
+            }
+
+            Assert.Equal(node.Attributes["style"].Value, "background-color: white; color: black;");
+        }
     }
 }

@@ -87,7 +87,8 @@ namespace Postal
 
         private static bool HasDeclarationDefinedInline(Declaration declaration, string style)
         {
-            return style.IndexOf(declaration.Name, 0, StringComparison.CurrentCultureIgnoreCase) != -1;
+            var styleMatcher = new Regex(String.Format(@"(?:^|;)\s*{0}", declaration.Name));
+            return styleMatcher.IsMatch(style);
         }
 
         private static void RemoveAttributesWithName(HtmlNode document, params string[] attributes)
